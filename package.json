@@ -11,7 +11,10 @@
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-typescript": "^1.4.10",
+    "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
+    "mem": "^5.1.1",
+    "open": "^6.4.0",
     "serve-handler": "^6.1.1"
   },
   "keywords": [
