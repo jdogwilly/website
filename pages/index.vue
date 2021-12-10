@@ -1,5 +1,7 @@
 <template>
-  <Tutorial/>
+  <b-container>
+    <Resume />
+  </b-container>
 </template>
 
 <script lang="ts">
