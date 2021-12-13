@@ -1,5 +1,5 @@
 <template>
-  <b-jumbotron header="Jacob's Website"> </b-jumbotron>
+  <Resume v-bind:blurb="false" />
 </template>
 
 <script lang="ts">

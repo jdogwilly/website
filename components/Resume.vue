@@ -7,21 +7,26 @@
         text-variant="light"
         class="p-2 text-center"
       >
-        <b-card-text>
+        <b-card-body>
           <h2>Jacob Brookins</h2>
           <p class="m-auto">Software Engineer</p>
           <p class="m-auto">Seattle, WA</p>
-        </b-card-text>
+        </b-card-body>
       </b-card>
       <b-card bg-variant="info" text-variant="light">
         <b-card-title>Contact Information</b-card-title>
         <p>
-          Phone:<b-link class="link-light" href="tel:+17706885088">
+          Phone:
+          <b-link class="link-light" href="tel:+17706885088" v-if="showPhone">
             +1 (770) 688-5088</b-link
           >
         </p>
         <p>
-          Email:<b-link class="link-light" href="mailto:jacob@brookins.email"
+          Email:
+          <b-link
+            class="link-light"
+            href="mailto:jacob@brookins.email"
+            v-if="showEmail"
             >jacob@brookins.email</b-link
           >
         </p>
@@ -57,19 +62,9 @@
       </b-card>
     </b-col>
     <b-col cols="9" class="px-0">
-      <b-card>
+      <b-card v-if="blurbs">
         <b-card-text>
-          Experienced software engineer with 2 years of experience running a
-          large distributed system, supporting the largest catalog on earth. I
-          started working for my parent's company (Doctor Electric) developing
-          their website and grew to influence their growing IT needs. I've
-          designed a number of applications to fill data analytics and reporting
-          requirements. At Amazon, I've worked on code updates to 15+ year old
-          systems and cutting edge distributed computing services. In my
-          freetime, I am likely tinkering with my smart home, playing with my
-          cats, or playing a good game. While I enjoy my job now, I've always
-          been more interested in lighter and more flexible environments as well
-          as embeded systems. Big LTT fan as well
+          <p v-for="blurb in blurbs">{{ blurb }}</p>
         </b-card-text>
       </b-card>
       <b-card>
@@ -116,6 +111,7 @@
           v-bind:bulletPoints="[
             'Develop serverless cloud applications to automate tasks',
             'Advise on IT strategy and helped with organizational goals',
+            'Designed cloud based alternatives to legacy software to reduce overhead',
           ]"
         />
       </b-card>
@@ -131,7 +127,6 @@
             'Minor in Mathematics',
             'Coursework in Embedded Systems, Algorithms, and Software Engineering',
             'Spent 2 years in a working group upgrading labs and designed a data collection system',
-            '',
           ]"
         />
       </b-card>
@@ -139,12 +134,23 @@
         <b-card-title>Volunteering</b-card-title>
         <hr />
         <b-card-text>
-          <h4 class="mb-auto">Amazon Future Engineer</h4>
+          <h4 class="mb-auto">2020 Amazon Future Engineer Hackathon</h4>
           <p>
-            Assisted in a hackathon put on for Amazon Future Engineer Students.
+            Assisted as a technical consultant for an internal hackathon put on
+            for Amazon Future Engineer Students.
           </p>
         </b-card-text>
       </b-card>
     </b-col>
   </b-row>
 </template>
+
+<script>
+export default {
+  props: {
+    blurbs: Array,
+    showPhone: Boolean,
+    showEmail: Boolean,
+  },
+}
+</script>
